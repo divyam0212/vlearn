@@ -5,6 +5,7 @@ import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
+import { HomeComponent } from './components/home/home.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MFRPService } from './components/services/mfrp.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -14,17 +15,17 @@ import { FilterPipe } from './pipes/filter.pipe';
   declarations: [
     AppComponent,
     SearchComponent,
-    // FilterPipe
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    Ng2SearchPipeModule
+    HttpClientModule
   ],
   providers: [MFRPService],
-  bootstrap: [AppComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }
 // Ng2SearchPipeModule,
