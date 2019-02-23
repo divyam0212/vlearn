@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="search-hero">
+          <form>
+              <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" &#61442;  Start searching for a employee">
+          </form>
+        </div>
+    </div> <br> <br> <br>
+    <div class="row">
+        <div *ngFor="let hero of empData | filter:searchText">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" [href]="'#collapse'+hero.empId"><span class="glyphicon glyphicon-book">
+                              </span> {{hero.empName}}</a>
+                        </h4>
+                    </div>
+                    <div [id]="'collapse'+hero.empId" class="panel-collapse collapse">
+                        <b> Hello {{hero.empName}} !! </b>
+                                    <br> {{hero.empSalary}}
+                                    <br> {{hero.department.departmentName}}
+                                    <br> {{hero.department.departmentLocation}}
+                                    <br>
+                                    <div *ngFor="let skill of hero.skillsList">
+                                      - {{skill.skillName}}
+                                    </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
