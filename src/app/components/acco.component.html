@@ -1,0 +1,42 @@
+<br><br>
+<form>
+<div class="container">
+    <div class="row">
+        <div class="search-hero">
+          
+              <input class="form-control input-lg" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder=" &#xf0e0;  Search for existing check">
+          
+        </div>
+    </div> <br> <br> <br>
+    <div *ngFor="let hero of empData | filter:searchText">
+        <div id="accordion">
+            <div class="card">
+                  <div class="card-header">
+                    <a class="card-link" data-toggle="collapse" [href]="'#collapse'+hero.empId">
+                        <span class="glyphicon glyphicon-menu-down"></span>&nbsp;{{hero.empName}}
+                    </a>
+                  </div>
+                  <div [id]="'collapse'+hero.empId" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <b> Hello {{hero.empName}} !! </b>
+                                    <br> {{hero.empSalary}}
+                                    <br> {{hero.department.departmentName}}
+                                    <br> {{hero.department.departmentLocation}}
+                                    <br>
+                                    <div *ngFor="let skill of hero.skillsList">
+                                      - {{skill.skillName}}
+                                    </div>
+                                    <div class="check">
+                                        <select class="form-control dropdn" id="sel1">
+                                            <option *ngFor="let type of checkType">{{type.checkName}}</option>
+                                          </select>
+                                          <span class="glyphicon glyphicon-plus" (click)="addCheck()"></span>
+                                          <!-- <button class="btn"><span class="glyphicon glyphicon-plus"></span>ADD CHECK</button> -->
+                                    </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
